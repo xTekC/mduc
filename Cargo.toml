@@ -2,6 +2,8 @@
 name = "markdup"
 version = "0.1.0"
 edition = "2021"
+description = "A markdown to html compiler"
+authors = ["xTeKc"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
