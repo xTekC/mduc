@@ -15,7 +15,7 @@ fn short_banner() {
     println!("{}. ", title());
 }
 
-// output: short_banner(), author and usage
+// output: short_banner(), author, homepage and usage
 fn long_banner() {
     short_banner();
     let mut author = String::from("Written by: ");
