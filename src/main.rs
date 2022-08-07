@@ -8,7 +8,10 @@ fn title() -> String {
 }
 
 // called when a md file is passed in terminal
-fn parse_md_file() {}
+fn parse_md_file(_the_file: &str) {
+    short_banner();
+    println!("\n[ INFO ] Attempting to parse {}...", _the_file);
+}
 
 // output: title, version and description
 fn short_banner() {
@@ -28,9 +31,21 @@ fn long_banner() {
     println!("{}", usage);
 }
 
-fn info() {}
+fn info() {
+    println!("{:?}", long_banner());
+}
 
 fn main() {
-    //short_banner();
-    //long_banner();
+    // collect all arguments in a vector
+    let args: Vec<String> = std::env::args().collect();
+    
+    match args.len() {
+        2 => parse_md_file(&args[1]),
+        _ => {
+            println!("[ ERROR ] Invalid Input\n");
+            info();
+        }
+    }
+
+
 }
