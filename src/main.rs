@@ -71,7 +71,9 @@ fn parse_md_file(_the_file: &str) {
                     output_line.push_str("</h1>\n")
                 }
 
+                // set heading tag to true
                 htag = true;
+                // push <h1> tag to output_line
                 output_line.push_str("\n\n<h1>");
                 // get all line_contents except the first 2 chars
                 // push to output_line
@@ -93,16 +95,23 @@ fn parse_md_file(_the_file: &str) {
             } 
         }; // end of match
 
+        // if paragraph tag open,
         if ptag {
+            // close it
             ptag = false;
+            // push </p> 
             output_line.push_str("</p>\n");
         }
 
+        // if heading tag open
         if htag {
+            // close it
             htag = false;
+            // push </h1>
             output_line.push_str("</h1>\n");
         }
 
+        // to avoid pushing blank lines
         if output_line != "<p></p>\n" {
             tokens.push(output_line);
         }
@@ -160,6 +169,9 @@ fn main() {
     // collect all arguments in a vector
     let args: Vec<String> = std::env::args().collect();
 
+    // checks to make sure there are only 2 elements in args Vec
+    // elem 1: name of program
+    // elem 2: markdown file
     match args.len() {
         2 => parse_md_file(&args[1]),
         _ => {
