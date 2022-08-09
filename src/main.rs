@@ -16,7 +16,7 @@ fn title() -> String {
 fn parse_md_file(_the_file: &str) {
     short_banner();
     println!("\n[ INFO ] Attempting to parse {}...", _the_file);
-    // create a path var from the_filename
+    // create a path var from the_file
     let input_file = Path::new(_the_file);
 
     // attempt to open the file
