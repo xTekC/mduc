@@ -1,7 +1,7 @@
 # markdup
 A markdown to html compiler.
 
-## Run with Bash:
+<!-- ## Run with Bash:
 ---
 ```
 sh <(curl https://markdup.onrender.com/sh)
@@ -11,21 +11,31 @@ sh <(curl https://markdup.onrender.com/sh)
 ---
 ```
 iwr -useb https://markdup.onrender.com/ps | iex
-```
+``` -->
 
-# Usage:
+## Run locally:
+linux x86_64
+```
+curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64_linux.sh | bash
+```
+apple x86_64
+```
+curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64_apple.sh | bash
+``` 
+
+## Usage:
 Within the directory of the markdown file, run: `markdup md_file.md` <br>
 This will output an equivalent `.html` file.
 
 <br>
 
-# Capabilities :
+## Capabilities :
 - converts `#` to `<h1></h1>` tags
 - converts `plain text` into `<p></p>` tags
 
 <br>
 
-# Future Additions :
+## Future Additions :
 - `<html>` html
 - `<head>` head
 - `<body>` body
