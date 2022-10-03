@@ -14,13 +14,13 @@ iwr -useb https://markdup.onrender.com/ps | iex
 ``` -->
 
 ## Run locally:
-linux x86_64
+linux x86_64-linux-gnu
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64_linux.sh | bash
+curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64-linux-gnu.sh | bash
 ```
-apple x86_64
+apple x86_64-apple-darwin
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64_apple.sh | bash
+curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64-apple-darwin.sh | bash
 ``` 
 
 ## Usage:
