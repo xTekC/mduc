@@ -44,5 +44,5 @@ if [[ "$OSTYPE" =~ ^darwin && ! -f /usr/local/opt/libusb/lib/libusb-1.0.0.dylib 
     echo && echo "warning: libusb not found. You may need to install it manually on MacOS via Homebrew (brew install libusb)."
 fi
 
-printf && printf "Detected your preferred shell is ${PREF_SHELL} and added markdup to PATH. '%b\n'
-Run 'source ${PROFILE}' or start a new terminal session to use markdup."
+printf "\n" && printf "Detected your preferred shell is "$PREF_SHELL" and added markdup to PATH.
+Run 'source "$PROFILE"' or start a new terminal session to use markdup."
