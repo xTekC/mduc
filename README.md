@@ -13,7 +13,7 @@ sh <(curl https://markdup.onrender.com/sh)
 iwr -useb https://markdup.onrender.com/ps | iex
 ``` -->
 
-## Run locally:
+## Install:
 x86_64-linux-gnu
 ```
 curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64-linux-gnu.sh | bash
