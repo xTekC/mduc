@@ -1,0 +1,44 @@
+name: cli-test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/cli-test.yml'
+      - 'cli/**'
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+  pull_request:
+    paths:
+      - '.github/workflows/cli-test.yml'
+      - 'cli/**'
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+
+env:
+  RUST_BACKTRACE: 1
+
+concurrency:
+   group: ${{ github.workflow }}-${{ github.ref }}
+   cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        toolchain: [1.63, stable]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install stable
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: ${{ matrix.toolchain }}
+          override: true
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test

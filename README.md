@@ -3,22 +3,31 @@ A markdown to html compiler.
 
 <br>
 
-__Usage__ :
-- `clone repo`
-- `cargo build`
-- place *.md* file inside dir
-- `cargo run`
-- outputs equivalent *.html* file
+## Run with Bash:
+---
+```
+sh <(curl https://markdup.onrender.com/sh)
+```
+
+## Run with Powershell:
+---
+```
+iwr -useb https://markdup.onrender.com/ps | iex
+```
+
+# Usage:
+Within the directory of the markdown file, run: `markdup md_file.md` <br>
+This will output an equivalent `.html` file.
 
 <br>
 
-__Capabilities__ :
+# Capabilities :
 - converts `#` to `<h1></h1>` tags
 - converts `plain text` into `<p></p>` tags
 
 <br>
 
-__Future Additions__ :
+# Future Additions :
 - `<html>` html
 - `<head>` head
 - `<body>` body
