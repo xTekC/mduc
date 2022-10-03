@@ -1,6 +1,6 @@
 use std::fs::File;
-use std::io::{BufRead, BufReader};
 use std::io::Write;
+use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 fn title() -> String {
@@ -78,7 +78,7 @@ fn parse_md_file(_the_file: &str) {
                 // get all line_contents except the first 2 chars
                 // push to output_line
                 output_line.push_str(&line_contents[2..]);
-            },
+            }
 
             // first char is not #
             _ => {
@@ -92,14 +92,14 @@ fn parse_md_file(_the_file: &str) {
 
                 // push the whole line to the output_line
                 output_line.push_str(&line_contents);
-            } 
+            }
         }; // end of match
 
         // if paragraph tag open,
         if ptag {
             // close it
             ptag = false;
-            // push </p> 
+            // push </p>
             output_line.push_str("</p>\n");
         }
 
@@ -123,20 +123,20 @@ fn parse_md_file(_the_file: &str) {
     // }
 
     // get all but the last 3 chars of _the_file (the file type .md)
-    let mut output_file = String::from(&_the_file[.._the_file.len()-3]);
+    let mut output_file = String::from(&_the_file[.._the_file.len() - 3]);
 
     // push .html to the end of the file name
     output_file.push_str(".html");
 
     // create output file
-    let mut outfile = File::create(output_file)
-        .expect("[ ERROR ] Could not create output file!");
+    let mut outfile = File::create(output_file).expect("[ ERROR ] Could not create output file!");
 
     // write each element to the output file
     for line in &tokens {
-        // for each line in tokens, 
+        // for each line in tokens,
         // write each line as a byte sequence to the outfile
-        outfile.write_all(line.as_bytes())
+        outfile
+            .write_all(line.as_bytes())
             .expect("[ ERROR ] Could not write to output file!");
     }
 
