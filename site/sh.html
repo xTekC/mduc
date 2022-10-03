@@ -40,7 +40,7 @@ main() {
             ;;
     esac
 
-    local __TAG_NAME__="v0.1.0"
+    local __TAG_NAME__="v0.1.0-37858ebc"
     local _url="https://github.com/xTeKc/markdup/releases/download/${__TAG_NAME__}/markdup-${_arch}${_ext}"
     #local _url="https://markdup.onrender.com/download/bin?tag=${__TAG_NAME__}&arch=${_arch}&ext=${_ext}"
 
