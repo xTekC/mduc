@@ -6,7 +6,7 @@ echo Installing markdup...
 MOGEN_DIR=${MOGEN_DIR-"$HOME/.markdup"}
 MOGEN_BIN_DIR="$MOGEN_DIR/bin"
 
-BIN_URL="https://github.com/xTeKc/markdup/releases/download/v0.1.0-37858ebc/markdup-x86_64-unknown-linux-gnu"
+BIN_URL="https://github.com/xTeKc/markdup/releases/download/v0.1.0-5e1279c3/markdup-x86_64-unknown-linux-gnu"
 BIN_PATH="$MOGEN_BIN_DIR/markdup"
 
 # create .markdup bin dir and markdup bin if they don't exist
