@@ -10,8 +10,8 @@ on:
   # repository_dispatch:
   #   types: [release]
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     tags:
       - v[0-9]+.[0-9]+.[0-9]+
 
