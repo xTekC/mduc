@@ -1,8 +1,6 @@
 # markdup
 A markdown to html compiler.
 
-<br>
-
 ## Run with Bash:
 ---
 ```
