@@ -41,7 +41,8 @@ fi
 
 # Warn MacOS users that they may need to manually install libusb via Homebrew:
 if [[ "$OSTYPE" =~ ^darwin && ! -f /usr/local/opt/libusb/lib/libusb-1.0.0.dylib ]]; then
-    echo && echo "warning: libusb not found. You may need to install it manually on MacOS via Homebrew (brew install libusb)."
+    printf "\n" && printf "warning: libusb not found. 
+    You may need to install it manually on MacOS via Homebrew (brew install libusb)."
 fi
 
 printf "\n" && printf "Detected your preferred shell is "$PREF_SHELL" and added markdup to PATH.
