@@ -1,30 +1,30 @@
-# markdup
+# mduc
 A markdown to html compiler.
 
 <!-- ## Run with Bash:
 ---
 ```
-sh <(curl https://markdup.onrender.com/sh)
+sh <(curl https://mduc.onrender.com/sh)
 ```
 
 ## Run with Powershell:
 ---
 ```
-iwr -useb https://markdup.onrender.com/ps | iex
+iwr -useb https://mduc.onrender.com/ps | iex
 ``` -->
 
 ## Install:
 x86_64-linux-gnu
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64-linux-gnu.sh | bash
+curl -L https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/local/install-x86_64-linux-gnu.sh | bash
 ```
 x86_64-apple-darwin
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/markdup/main/scripts/local/install-x86_64-apple-darwin.sh | bash
+curl -L https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/local/install-x86_64-apple-darwin.sh | bash
 ``` 
 
 ## Usage:
-Within the directory of the markdown file, run: `markdup md_file.md` <br>
+Within the directory of the markdown file, run: `mduc md_file.md` <br>
 This will output an equivalent `.html` file.
 
 <br>

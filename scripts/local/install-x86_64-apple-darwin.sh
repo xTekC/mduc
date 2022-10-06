@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-echo Installing markdup...
+echo Installing mduc...
 
-MOGEN_DIR=${MOGEN_DIR-"$HOME/.markdup"}
+MOGEN_DIR=${MOGEN_DIR-"$HOME/.mduc"}
 MOGEN_BIN_DIR="$MOGEN_DIR/bin"
 
-BIN_URL="https://github.com/xTeKc/markdup/releases/download/v0.1.0-5e1279c3/markdup-x86_64-apple-darwin"
-BIN_PATH="$MOGEN_BIN_DIR/markdup"
+BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-5e1279c3/mduc-x86_64-apple-darwin"
+BIN_PATH="$MOGEN_BIN_DIR/mduc"
 
-# create .markdup bin dir and markdup bin if they don't exist
+# create .mduc bin dir and mduc bin if they don't exist
 mkdir -p "$MOGEN_BIN_DIR"
 curl -# -L "$BIN_URL" -o "$BIN_PATH"
 chmod +x "$BIN_PATH"
@@ -29,13 +29,13 @@ case $SHELL in
     PREF_SHELL=fish
     ;;
 *)
-    echo "markdup: could not detect shell, manually add ${MOGEN_BIN_DIR} to your PATH."
+    echo "mduc: could not detect shell, manually add ${MOGEN_BIN_DIR} to your PATH."
     exit 1
 esac
 
-# Only add markdup if it isn't already in PATH.
+# Only add mduc if it isn't already in PATH.
 if [[ ":$PATH:" != *":${MOGEN_BIN_DIR}:"* ]]; then
-    # Add the markdup directory to the path and ensure the old PATH variables remain.
+    # Add the mduc directory to the path and ensure the old PATH variables remain.
     echo >> "$PROFILE" && echo "export PATH=\"\$PATH:$MOGEN_BIN_DIR\"" >> "$PROFILE"
 fi
 
@@ -45,5 +45,5 @@ if [[ "$OSTYPE" =~ ^darwin && ! -f /usr/local/opt/libusb/lib/libusb-1.0.0.dylib 
     You may need to install it manually on MacOS via Homebrew (brew install libusb)."
 fi
 
-printf "\n" && printf "Detected your preferred shell is "$PREF_SHELL" and added markdup to PATH.
-Run 'source "$PROFILE"' or start a new terminal session to use markdup."
+printf "\n" && printf "Detected your preferred shell is "$PREF_SHELL" and added mduc to PATH.
+Run 'source "$PROFILE"' or start a new terminal session to use mduc."

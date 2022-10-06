@@ -3,7 +3,7 @@
 # This is a modified version of rustup-init.sh script
 
 # This is just a little script that can be downloaded from the internet to
-# run markdup. It just does platform detection, downloads the binary
+# run mduc. It just does platform detection, downloads the binary
 # and runs it.
 
 # It runs on Unix shells like {a,ba,da,k,z}sh. It uses the common `local`
@@ -13,7 +13,7 @@ if [ "$KSH_VERSION" = 'Version JM 93t+ 2010-03-05' ]; then
     # The version of ksh93 that ships with many illumos systems does not
     # support the "local" extension.  Print a message rather than fail in
     # subtle ways later on:
-    echo 'markdup does not work with this ksh93 version; please try bash!' >&2
+    echo 'mduc does not work with this ksh93 version; please try bash!' >&2
     exit 1
 fi
 
@@ -41,12 +41,12 @@ main() {
     esac
 
     local __TAG_NAME__="v0.1.0-5e1279c3"
-    local _url="https://github.com/xTeKc/markdup/releases/download/${__TAG_NAME__}/markdup-${_arch}${_ext}"
-    #local _url="https://markdup.onrender.com/download/bin?tag=${__TAG_NAME__}&arch=${_arch}&ext=${_ext}"
+    local _url="https://github.com/xTeKc/mduc/releases/download/${__TAG_NAME__}/mduc-${_arch}${_ext}"
+    #local _url="https://mduc.onrender.com/download/bin?tag=${__TAG_NAME__}&arch=${_arch}&ext=${_ext}"
 
     local _dir
     _dir="$(ensure mktemp -d)"
-    local _file="${_dir}/markdup${_ext}"
+    local _file="${_dir}/mduc${_ext}"
 
     local _ansi_escapes_are_valid=false
     if [ -t 2 ]; then
@@ -83,9 +83,9 @@ main() {
 
 
     if $_ansi_escapes_are_valid; then
-        printf "\33[1m\33[32minfo:\33[0m downloading markdup\n" 1>&2
+        printf "\33[1m\33[32minfo:\33[0m downloading mduc\n" 1>&2
     else
-        printf '%s\n' 'info: downloading markdup' 1>&2
+        printf '%s\n' 'info: downloading mduc' 1>&2
     fi
 
     ensure mkdir -p "$_dir"
@@ -93,7 +93,7 @@ main() {
     ensure chmod u+x "$_file"
     if [ ! -x "$_file" ]; then
         printf '%s\n' "Cannot execute $_file (likely because of mounting /tmp as noexec)." 1>&2
-        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./markdup${_ext}." 1>&2
+        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./mduc${_ext}." 1>&2
         exit 1
     fi
 
@@ -232,7 +232,7 @@ get_architecture() {
 }
 
 say() {
-    printf 'markdup: %s\n' "$1"
+    printf 'mduc: %s\n' "$1"
 }
 
 err() {

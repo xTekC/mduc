@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "${{ matrix.settings.target }}"
-          path: "target/release/markdup${{ matrix.settings.ext }}"
+          path: "target/release/mduc${{ matrix.settings.ext }}"
           if-no-files-found: error
 
   publish:
@@ -109,11 +109,11 @@ jobs:
         working-directory: binaries
         shell: bash
         run: |
-          find . -name 'markdup*' -print0 | while read -d '' file
+          find . -name 'mduc*' -print0 | while read -d '' file
           do
             parent="$(basename $(dirname ${file}))"
             target="${file#./}"
-            target="${target/markdup/markdup-${parent}}"
+            target="${target/mduc/mduc-${parent}}"
             target="${target/${parent}\//}"
             mv $file $target
           done
@@ -127,6 +127,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # release_id: "${{ github.event.client_payload.releaseId || inputs.releaseId }}"
-          # file: "binaries/*;#markdup.sh;markdup.ps1"
+          # file: "binaries/*;#mduc.sh;mduc.ps1"
           file: "binaries/*;"
           draft: false

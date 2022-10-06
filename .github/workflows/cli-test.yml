@@ -6,13 +6,13 @@ on:
       - main
     paths:
       - '.github/workflows/cli-test.yml'
-      - 'cli/**'
+      - 'src/***'
       - 'Cargo.lock'
       - 'Cargo.toml'
   pull_request:
     paths:
       - '.github/workflows/cli-test.yml'
-      - 'cli/**'
+      - 'src/***'
       - 'Cargo.lock'
       - 'Cargo.toml'
 

@@ -155,7 +155,7 @@ fn long_banner() {
     author.push_str(env!("CARGO_PKG_AUTHORS"));
     let mut homepage = String::from("Homepage: ");
     homepage.push_str(env!("CARGO_PKG_HOMEPAGE"));
-    let /*mut*/ usage = String::from("Usage: markdup <usage.md>");
+    let /*mut*/ usage = String::from("Usage: mduc <usage.md>");
     println!("{}", author);
     println!("{}", homepage);
     println!("{}", usage);

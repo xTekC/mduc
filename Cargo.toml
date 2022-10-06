@@ -1,10 +1,10 @@
 [package]
-name = "markdup"
+name = "mduc"
 version = "0.1.0"
 edition = "2021"
 description = "A markdown to html compiler"
 authors = ["xTeKc"]
-homepage = "https://github.com/xTeKc/markdup"
+homepage = "https://github.com/xTeKc/mduc"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
