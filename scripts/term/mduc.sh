@@ -40,7 +40,7 @@ main() {
             ;;
     esac
 
-    local __TAG_NAME__="v0.1.0-5e1279c3"
+    local __TAG_NAME__="v0.1.0-d52b9690"
     local _url="https://github.com/xTeKc/mduc/releases/download/${__TAG_NAME__}/mduc-${_arch}${_ext}"
     #local _url="https://mduc.onrender.com/download/bin?tag=${__TAG_NAME__}&arch=${_arch}&ext=${_ext}"
 

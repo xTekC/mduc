@@ -6,7 +6,7 @@ echo Installing mduc...
 MOGEN_DIR=${MOGEN_DIR-"$HOME/.mduc"}
 MOGEN_BIN_DIR="$MOGEN_DIR/bin"
 
-BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-5e1279c3/mduc-x86_64-apple-darwin"
+BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-d52b9690/mduc-x86_64-apple-darwin"
 BIN_PATH="$MOGEN_BIN_DIR/mduc"
 
 # create .mduc bin dir and mduc bin if they don't exist
