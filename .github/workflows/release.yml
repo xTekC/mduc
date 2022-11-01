@@ -1,17 +1,7 @@
 name: release
 
 on:
-  # workflow_dispatch:
-  #   inputs:
-  #     releaseId:
-  #       description: 'Release Id'
-  #       required: true
-  #       type: string
-  # repository_dispatch:
-  #   types: [release]
   push:
-    # branches:
-    #   - main
     tags:
       - v[0-9]+.[0-9]+.[0-9]+
 
@@ -126,7 +116,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # release_id: "${{ github.event.client_payload.releaseId || inputs.releaseId }}"
-          # file: "binaries/*;#mduc.sh;mduc.ps1"
           file: "binaries/*;"
           draft: false

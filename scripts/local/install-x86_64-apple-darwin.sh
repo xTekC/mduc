@@ -6,7 +6,7 @@ echo Installing mduc...
 MDUC_DIR=${MDUC_DIR-"$HOME/.mduc"}
 MDUC_BIN_DIR="$MDUC_DIR/bin"
 
-BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-d52b9690/mduc-x86_64-apple-darwin"
+BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-53896a83/mduc-x86_64-apple-darwin"
 BIN_PATH="$MDUC_BIN_DIR/mduc"
 
 # create .mduc bin dir and mduc bin if they don't exist
