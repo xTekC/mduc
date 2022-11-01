@@ -1,18 +1,6 @@
 # mduc
 A markdown to html compiler.
 
-<!-- ## Run with Bash:
----
-```
-sh <(curl https://mduc.onrender.com/sh)
-```
-
-## Run with Powershell:
----
-```
-iwr -useb https://mduc.onrender.com/ps | iex
-``` -->
-
 ## Install:
 x86_64-linux-gnu
 ```
