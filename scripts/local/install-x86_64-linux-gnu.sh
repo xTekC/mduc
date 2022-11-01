@@ -3,14 +3,14 @@ set -e
 
 echo Installing mduc...
 
-MOGEN_DIR=${MOGEN_DIR-"$HOME/.mduc"}
-MOGEN_BIN_DIR="$MOGEN_DIR/bin"
+MDUC_DIR=${MDUC_DIR-"$HOME/.mduc"}
+MDUC_BIN_DIR="$MDUC_DIR/bin"
 
 BIN_URL="https://github.com/xTeKc/mduc/releases/download/v0.1.0-d52b9690/mduc-x86_64-unknown-linux-gnu"
-BIN_PATH="$MOGEN_BIN_DIR/mduc"
+BIN_PATH="$MDUC_BIN_DIR/mduc"
 
 # create .mduc bin dir and mduc bin if they don't exist
-mkdir -p "$MOGEN_BIN_DIR"
+mkdir -p "$MDUC_BIN_DIR"
 curl -# -L "$BIN_URL" -o "$BIN_PATH"
 chmod +x "$BIN_PATH"
 
@@ -29,14 +29,14 @@ case $SHELL in
     PREF_SHELL=fish
     ;;
 *)
-    echo "mduc: could not detect shell, manually add ${MOGEN_BIN_DIR} to your PATH."
+    echo "mduc: could not detect shell, manually add ${MDUC_BIN_DIR} to your PATH."
     exit 1
 esac
 
 # Only add mduc if it isn't already in PATH.
-if [[ ":$PATH:" != *":${MOGEN_BIN_DIR}:"* ]]; then
+if [[ ":$PATH:" != *":${MDUC_BIN_DIR}:"* ]]; then
     # Add the mduc directory to the path and ensure the old PATH variables remain.
-    echo >> "$PROFILE" && echo "export PATH=\"\$PATH:$MOGEN_BIN_DIR\"" >> "$PROFILE"
+    echo >> "$PROFILE" && echo "export PATH=\"\$PATH:$MDUC_BIN_DIR\"" >> "$PROFILE"
 fi
 
 # Warn MacOS users that they may need to manually install libusb via Homebrew:
