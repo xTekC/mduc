@@ -1,17 +1,20 @@
-name: cli-test
+# Copyright (c) 2022 xTekC.
+# SPDX-License-Identifier: MPL-2.0
+
+name: test
 
 on:
   push:
     branches:
       - main
     paths:
-      - '.github/workflows/cli-test.yml'
+      - '.github/workflows/test.yml'
       - 'src/***'
       - 'Cargo.lock'
       - 'Cargo.toml'
   pull_request:
     paths:
-      - '.github/workflows/cli-test.yml'
+      - '.github/workflows/test.yml'
       - 'src/***'
       - 'Cargo.lock'
       - 'Cargo.toml'

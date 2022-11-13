@@ -1,9 +1,9 @@
+# Copyright (c) 2022 xTekC.
+# SPDX-License-Identifier: MPL-2.0
+
 name: audit
 
 on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: '0 0 * * *'
   push:
     branches:
       - main

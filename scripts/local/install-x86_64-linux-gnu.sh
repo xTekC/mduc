@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# Copyright (c) 2022 xTekC.
+# SPDX-License-Identifier: MPL-2.0
+
 set -e
 
 echo Installing mduc...
