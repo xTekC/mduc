@@ -10,5 +10,5 @@
 **/*.rs.bk
 
 # misc
-test_file.md
-test_file.html
+hello.md
+hello.html

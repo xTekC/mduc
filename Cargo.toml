@@ -6,6 +6,13 @@ description = "A markdown to html compiler"
 authors = ["xTeKc"]
 homepage = "https://github.com/xTeKc/mduc"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "mduc"
+path = "src/bin/mduc.rs"
 
 [dependencies]
+anyhow = "1.0.66"
+clap = { version = "4.0.19", features = ["derive", "cargo"] }
+futures = "0.3.25"
+owo-colors = "3.5.0"
+tokio = { version = "1.21.2", features = ["macros", "rt-multi-thread"] }

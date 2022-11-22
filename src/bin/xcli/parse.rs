@@ -3,24 +3,20 @@ use std::io::Write;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
-fn title() -> String {
-    let mut title = String::from(env!("CARGO_PKG_NAME"));
-    title.push_str(" (v");
-    title.push_str(env!("CARGO_PKG_VERSION"));
-    title.push_str("). ");
-    title.push_str(env!("CARGO_PKG_DESCRIPTION"));
-    title
+#[allow(unused)]
+pub struct InputFile {
+    file: String,
 }
 
 // called when a md file is passed in terminal
-fn parse_md_file(_the_file: &str) {
-    short_banner();
-    println!("\n[ INFO ] Attempting to parse {}...", _the_file);
+pub async fn parse_md_file(the_file: &str) {
+    //short_banner();
+    println!("\n[ INFO ] Attempting to parse {}...", the_file);
     // create a path var from the_file
-    let input_file = Path::new(_the_file);
+    let input_file = Path::new(the_file);
 
     // attempt to open the file
-    let file = File::open(&input_file).expect("[ ERROR ] Failed to open file!");
+    let file = File::open(input_file).expect("[ ERROR ] Failed to open file!");
 
     // heading tag
     let mut htag: bool = false;
@@ -123,7 +119,7 @@ fn parse_md_file(_the_file: &str) {
     // }
 
     // get all but the last 3 chars of _the_file (the file type .md)
-    let mut output_file = String::from(&_the_file[.._the_file.len() - 3]);
+    let mut output_file = String::from(&the_file[..the_file.len() - 3]);
 
     // push .html to the end of the file name
     output_file.push_str(".html");
@@ -141,42 +137,5 @@ fn parse_md_file(_the_file: &str) {
     }
 
     println!("[ INFO ] Parsing Complete!");
-}
-
-// output: title, version and description
-fn short_banner() {
-    println!("{}. ", title());
-}
-
-// output: short_banner(), author, homepage and usage
-fn long_banner() {
-    short_banner();
-    let mut author = String::from("Written by: ");
-    author.push_str(env!("CARGO_PKG_AUTHORS"));
-    let mut homepage = String::from("Homepage: ");
-    homepage.push_str(env!("CARGO_PKG_HOMEPAGE"));
-    let /*mut*/ usage = String::from("Usage: mduc <usage.md>");
-    println!("{}", author);
-    println!("{}", homepage);
-    println!("{}", usage);
-}
-
-fn info() {
-    println!("{:?}", long_banner());
-}
-
-fn main() {
-    // collect all arguments in a vector
-    let args: Vec<String> = std::env::args().collect();
-
-    // checks to make sure there are only 2 elements in args Vec
-    // elem 1: name of program
-    // elem 2: markdown file
-    match args.len() {
-        2 => parse_md_file(&args[1]),
-        _ => {
-            println!("[ ERROR ] Invalid Input\n");
-            info();
-        }
-    }
+    println!("[ INFO ] Created .html file!")
 }
