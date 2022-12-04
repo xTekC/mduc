@@ -16,6 +16,18 @@ curl -L https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/local/install-
 ## Usage:
 Within the directory of the markdown file, run: `mduc md_file.md` <br>
 This will output an equivalent `.html` file.
+```
+A markdown to html compiler
+
+Usage: mduc <MDFILE>
+
+Arguments:
+  <MDFILE>  Markdown file to compile
+
+Options:
+  -h, --help     Print help information
+  -V, --version  Print version information
+```
 
 <br>
 
