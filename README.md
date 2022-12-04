@@ -1,6 +1,8 @@
 # mduc
 A markdown to html compiler.
 
+https://user-images.githubusercontent.com/81730792/205475592-8f6758b0-424d-467e-99f7-6a662676c7b8.mp4
+
 ## Install:
 x86_64-linux-gnu
 ```
