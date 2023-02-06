@@ -1,5 +1,5 @@
-use mduc::xcore::parse::parse_md_file;
 use clap::Parser;
+use mduc::xcore::parse::parse_md_file;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
