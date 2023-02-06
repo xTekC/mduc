@@ -6,7 +6,7 @@ use std::path::Path;
 // called when a md file is passed in terminal
 pub async fn parse_md_file(the_file: &str) {
     //short_banner();
-    println!("\n[ INFO ] Attempting to parse {}...", the_file);
+    println!("\n[ INFO ] Attempting to parse {the_file}...");
     // create a path var from the_file
     let input_file = Path::new(the_file);
 
