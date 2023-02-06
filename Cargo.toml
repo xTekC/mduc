@@ -8,7 +8,7 @@ homepage = "https://github.com/xTeKc/mduc"
 
 [[bin]]
 name = "mduc"
-path = "src/bin/mduc.rs"
+path = "src/bin/main.rs"
 
 [dependencies]
 anyhow = "1.0.66"

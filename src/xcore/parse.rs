@@ -3,11 +3,6 @@ use std::io::Write;
 use std::io::{BufRead, BufReader};
 use std::path::Path;
 
-#[allow(unused)]
-pub struct InputFile {
-    file: String,
-}
-
 // called when a md file is passed in terminal
 pub async fn parse_md_file(the_file: &str) {
     //short_banner();
