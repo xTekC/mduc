@@ -1,8 +1,14 @@
+/******************************
+ *  Copyright (c) xTekC.      *
+ *  Licensed under MPL-2.0.   *
+ *  See LICENSE for details.  *
+ *                            *
+ ******************************/
+
 mod xcli;
-use futures::executor::block_on;
-use xcli::cli::cli_main;
+use xcli::cli;
 
 #[tokio::main]
 async fn main() {
-    block_on(cli_main());
+    cli::cli_main().await;
 }

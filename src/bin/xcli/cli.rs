@@ -1,6 +1,14 @@
-use clap::Parser;
-use mduc::xcore::parse::parse_md_file;
+/******************************
+ *  Copyright (c) xTekC.      *
+ *  Licensed under MPL-2.0.   *
+ *  See LICENSE for details.  *
+ *                            *
+ ******************************/
 
+use clap::Parser;
+use mduc::xcore::core::parse;
+
+/// Compile Markdown to HTML
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
@@ -13,6 +21,6 @@ pub async fn cli_main() {
 
     match cli.mdfile.is_empty() {
         true => (),
-        false => parse_md_file(&cli.mdfile).await,
+        false => parse(&cli.mdfile).await,
     }
 }

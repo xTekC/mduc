@@ -1,72 +1,125 @@
+<div align="center">
+
 # mduc
-A markdown to html compiler.
+Compile Markdown to HTML.
 
-https://user-images.githubusercontent.com/81730792/205475592-8f6758b0-424d-467e-99f7-6a662676c7b8.mp4
+<!-- <a href="https://crates.io/crates/mduc/"><img src="https://img.shields.io/crates/v/mduc?style=flat&amp;labelColor=032a1a&amp;color=065535&amp;logo=Rust&amp;logoColor=white" alt="Crate Release"></a> -->
+<br>
+<a href="https://github.com/xTekC/mduc/actions?query=workflow%3A%22Continuous+Integration%22"><img src="https://img.shields.io/github/actions/workflow/status/xTekC/mduc/ci.yml?branch=main&amp;style=flat&amp;labelColor=032a1a&amp;color=065535&amp;logo=GitHub%20Actions&amp;logoColor=white&amp;label=Build" alt="Continuous Integration"></a>
+<a href="https://github.com/xTekC/mduc/actions?query=workflow%3A%22Continuous+Deployment%22"><img src="https://img.shields.io/github/actions/workflow/status/xTekC/mduc/cd.yml?style=flat&amp;labelColor=032a1a&amp;color=065535&amp;logo=GitHub%20Actions&amp;logoColor=white&amp;label=Release" alt="Continuous Deployment"></a>
+<!-- <a href="https://docs.rs/mduc/"><img src="https://img.shields.io/docsrs/mduc?style=flat&amp;labelColor=032a1a&amp;color=065535&amp;logo=Rust&amp;logoColor=white" alt="Documentation"></a> -->
 
-## Install:
-x86_64-linux-gnu
+[![GitHub license](https://img.shields.io/github/license/xTekC/mduc.svg?style=flat&labelColor=032a1a&color=065535&logo=GitHub&logoColor=black&label=License)](https://github.com/xTekC/mduc/blob/main/LICENSE)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A-Coffee-orange?style=flat&labelColor=FFFFFF&color=000000&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/xTekC)
+
+<a href="#features">Features</a> •
+<a href="#installation">Installation</a> •
+<a href="#usage">Usage</a> •
+<a href="#contribution">Contribution</a>
+<!-- <a href="#roadmap">Roadmap</a> -->
+<!-- <a href="#acknowledgements">Acknowlegements</a> • -->
+
+</div>
+
+## Features
+
+**Supported systems**
+
+_Linux_:
+- riscv64gc-unknown-linux-gnu
+- aarch64-linux-android
+- aarch64-unknown-linux-gnu
+- aarch64-unknown-linux-musl
+- x86_64-unknown-linux-gnu
+- x86_64-unknown-linux-musl
+
+_BSD_:
+- x86_64-unknown-freebsd
+- x86_64-unknown-netbsd
+
+_MacOS_:
+- aarch64-apple-darwin
+- x86_64-apple-darwin
+
+_Windows_:
+- aarch64-pc-windows-msvc
+- x86_64-pc-windows-gnu
+- x86_64-pc-windows-msvc
+
+## Installation
+
+**Cargo**
+
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/local/install-x86_64-linux-gnu.sh | bash
+cargo install --git https://github.com/xTekC/mduc --branch main --locked --profile rel-opt
 ```
-x86_64-apple-darwin
+
+<!-- **Prebuilt Binary**
+<br>
+
+(For Android, use Termux: `https://f-droid.org/repo/com.termux_118.apk`)
+
+Unix-Like [Install](https://github.com/xTeKc/mduc/blob/main/scripts/install.sh)<br>
+
 ```
-curl -L https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/local/install-x86_64-apple-darwin.sh | bash
-``` 
-
-## Usage:
-Within the directory of the markdown file, run: `mduc md_file.md` <br>
-This will output an equivalent `.html` file.
+curl -sSL https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/install.sh | sh
 ```
-A markdown to html compiler
 
-Usage: mduc <MDFILE>
+Unix-Like [Remove](https://github.com/xTeKc/mduc/blob/main/scripts/remove.sh)
 
-Arguments:
-  <MDFILE>  Markdown file to compile
-
-Options:
-  -h, --help     Print help information
-  -V, --version  Print version information
 ```
+curl -sSL https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/remove.sh | sh
+``` -->
+
+<!-- - Download the release binary and the corresponding hash file from the [Releases](https://github.com/xTekC/mduc/releases) page.
+
+- _Unix-Like Systems:_
+   - Verify the integrity of the binary by checking its hash: 
+   ```
+   sha512sum -c mduc-v0.0.0-ARCH.tar.gz.sha512
+   ```
+   - Extract the binary to ~/ and create a symlink in /usr/local/bin/ for system-wide access: 
+   ```
+   tar -xzvf mduc-v0.0.0-ARCH.tar.gz -C ~/ && sudo ln -s ~/mduc/bin/mduc /usr/local/bin/mduc
+   ```
+
+**Android**
+
+- Download Termux:
+```
+https://f-droid.org/repo/com.termux_118.apk
+```
+
+- Within Termux:
+
+   [Install](https://github.com/xTeKc/mduc/blob/main/scripts/android_i.sh):
+   ```
+   curl -sSL https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/android_i.sh | bash
+   ```
+
+   [Remove](https://github.com/xTeKc/mduc/blob/main/scripts/android_rm.sh):
+   ```
+   curl -sSL https://raw.githubusercontent.com/xTeKc/mduc/main/scripts/android_rm.sh | bash
+   ``` -->
+
+## Usage
+
+```
+mduc -h
+```
+
+- `mduc <Markdown_file>` &nbsp; compiles the given Markdown file into HTML
+
+## Contribution
+Read the [Contributing Guide](CONTRIBUTING.md) before making a pull request.
+
+<!-- ## Roadmap
+A list of planned future developments for the project. -->
+
+<!-- ## Acknowledgements
+List of any external libraries, frameworks, or other resources used in the project. -->
 
 <br>
 
-## Capabilities :
-- converts `#` to `<h1></h1>` tags
-- converts `plain text` into `<p></p>` tags
-
-<br>
-
-## Future Additions :
-- `<html>` html
-- `<head>` head
-- `<body>` body
-- `<title>` title
-- `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>` headers
-- `<em>` emphasis
-- `<b>` bold
-- `<i>` italic
-- `<small>` small text
-- `<u>` underline
-- `<strike>` strike through (deleted text)
-- `<a href="">` anchor
-- `<li>` list
-- `<ol>` ordered list
-- `<ul>` unordered list
-- `<!-->` comment
-- `<marquee>` scrolling text
-- `<center>` center
-- `<font>` font
-- `<br>` line break
-- `<img>` image
-- `<link>` link
-- `<hr/>` horizontal rule (display horizontal line)
-- `<meta>` meta (page description)
-- `<table>` table
-- `<tr>` table row
-- `<th>` table header
-- `<td>` standard table cell
-- `<form>` form
-- `<input type="submit">` submit input
-- `<option>` dropdown option
-- `<input type="radio">` radio input
+Copyright (c) **xTekC** <br>
+Licensed under [MPL-2.0](LICENSE)

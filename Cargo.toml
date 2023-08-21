@@ -1,18 +1,36 @@
 [package]
 name = "mduc"
-version = "0.1.0"
+version = "0.0.0"
+description = "Compile Markdown to HTML."
+authors = ["xTekC"]
+repository = "https://github.com/xTekC/mduc"
+readme = "README.md"
+homepage = "https://github.com/xTekC/mduc"
+documentation = "https://github.com/xTekC/mduc/blob/main/README.md"
+categories = ["command-line-utilities", "development-tools"]
+keywords = ["cli", "async"]
+# default-run = "mduc -h"
+publish = false
+# include = "[...]"
+# exclude = "[...]"
+# workspace = "..."
+# links = "..."
+# build = "build.rs"
+rust-version = "1.69.0"
 edition = "2021"
-description = "A markdown to html compiler"
-authors = ["xTeKc"]
-homepage = "https://github.com/xTeKc/mduc"
+license = "MPL-2.0"
 
 [[bin]]
 name = "mduc"
 path = "src/bin/main.rs"
 
 [dependencies]
-anyhow = "1.0.66"
-clap = { version = "4.0.19", features = ["derive", "cargo"] }
-futures = "0.3.25"
-owo-colors = "3.5.0"
-tokio = { version = "1.21.2", features = ["macros", "rt-multi-thread"] }
+clap = { version = "4.2.7", features = ["derive"] }
+tokio = { version = "1.28.1", features = ["rt-multi-thread", "macros"] }
+
+[profile.rel-opt]
+inherits = "release"
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
