@@ -67,7 +67,6 @@ fn process_line(line_contents: &str, mut htag: bool, mut ptag: bool) -> (String,
         }
     }
 
-    // Closing tags after processing line_contents
     if ptag {
         ptag = false;
         output_line.push_str("</p>\n");

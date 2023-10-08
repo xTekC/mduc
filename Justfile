@@ -32,11 +32,6 @@ fl:
     cargo fmt --all
     cargo clippy --locked --all-targets
 
-# Dprint fmt
-dp:
-    clear
-    dprint fmt --config config/dprint.json
-
 # Test all
 t:
     clear
@@ -55,4 +50,4 @@ c:
 
 # Create a new release
 rel version:
-    bash scripts/release.sh {{ version }}
+    sh scripts/release.sh {{ version }}

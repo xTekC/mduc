@@ -1,4 +1,20 @@
+<!-- /*************************
+ *  Copyright (c) xTekC.      *
+ *  Licensed under MPL-2.0.   *
+ *  See LICENSE for details.  *
+ *                            *
+ ******************************/ -->
+
 # mduc Contributing Guide
+
+## Development
+
+### Setup
+
+- __just__ (run commands) `cargo install just` <br> In .bashrc or equivalent `alias j="just"`
+- __watch__ (hot reloading) `cargo install cargo-watch`
+
+__View all of the Justfile commands:__ `j` <br>
 
 ## Pull Request Guidelines
 

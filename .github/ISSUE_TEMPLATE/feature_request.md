@@ -1,3 +1,10 @@
+<!-- /*************************
+ *  Copyright (c) xTekC.      *
+ *  Licensed under MPL-2.0.   *
+ *  See LICENSE for details.  *
+ *                            *
+ ******************************/ -->
+
 ---
 name: Feature request
 about: Suggest a new feature for mduc

@@ -1,3 +1,10 @@
+<!-- /*************************
+ *  Copyright (c) xTekC.      *
+ *  Licensed under MPL-2.0.   *
+ *  See LICENSE for details.  *
+ *                            *
+ ******************************/ -->
+
 ---
 name: Bug report
 about: An issue with mduc or any of its crates (ignore, globset, etc.)

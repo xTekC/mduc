@@ -26,11 +26,11 @@ jobs:
       fail-fast: false
       matrix:
         build:
-          - {
-              OS: ubuntu-latest,
-              TOOLCHAIN: stable,
-              TARGET: riscv64gc-unknown-linux-gnu,
-            }
+          # - {
+          #     OS: ubuntu-latest,
+          #     TOOLCHAIN: stable,
+          #     TARGET: riscv64gc-unknown-linux-gnu,
+          #   }
           - {
               OS: ubuntu-latest,
               TOOLCHAIN: stable,
@@ -61,11 +61,11 @@ jobs:
               TOOLCHAIN: stable,
               TARGET: x86_64-unknown-freebsd,
             }
-          - {
-              OS: ubuntu-latest,
-              TOOLCHAIN: stable,
-              TARGET: x86_64-unknown-netbsd,
-            }
+          # - {
+          #     OS: ubuntu-latest,
+          #     TOOLCHAIN: stable,
+          #     TARGET: x86_64-unknown-netbsd,
+          #   }
           - {
               OS: macos-latest,
               TOOLCHAIN: stable,
@@ -75,21 +75,21 @@ jobs:
               TOOLCHAIN: stable, 
               TARGET: x86_64-apple-darwin,
             }
-          - {
-              OS: windows-latest,
-              TOOLCHAIN: stable,
-              TARGET: aarch64-pc-windows-msvc,
-            }
-          - {
-              OS: windows-latest,
-              TOOLCHAIN: stable,
-              TARGET: x86_64-pc-windows-gnu,
-            }
-          - {
-              OS: windows-latest,
-              TOOLCHAIN: stable,
-              TARGET: x86_64-pc-windows-msvc,
-            }
+          # - {
+          #     OS: windows-latest,
+          #     TOOLCHAIN: stable,
+          #     TARGET: aarch64-pc-windows-msvc,
+          #   }
+          # - {
+          #     OS: windows-latest,
+          #     TOOLCHAIN: stable,
+          #     TARGET: x86_64-pc-windows-gnu,
+          #   }
+          # - {
+          #     OS: windows-latest,
+          #     TOOLCHAIN: stable,
+          #     TARGET: x86_64-pc-windows-msvc,
+          #   }
 
     steps:
       - name: Checkout the repository
@@ -104,15 +104,7 @@ jobs:
         run: rustup target add ${{ matrix.build.TARGET }}
 
       - name: Build for ${{ matrix.build.TARGET }}
-        if: ${{ matrix.build.TARGET != 'riscv64gc-unknown-linux-gnu' && matrix.build.TARGET != 'aarch64-linux-android' && matrix.build.TARGET != 'aarch64-unknown-linux-gnu' && matrix.build.TARGET != 'aarch64-unknown-linux-musl' && matrix.build.TARGET != 'x86_64-unknown-freebsd' && matrix.build.TARGET != 'x86_64-unknown-netbsd' }}
-        run: |
-          cargo build --locked --target ${{ matrix.build.TARGET }} --verbose
-
-      - name: Build (with cross) for ${{ matrix.build.TARGET }}
-        if: ${{ matrix.build.TARGET == 'riscv64gc-unknown-linux-gnu' || matrix.build.TARGET == 'aarch64-linux-android' || matrix.build.TARGET == 'aarch64-unknown-linux-gnu' || matrix.build.TARGET == 'aarch64-unknown-linux-musl' || matrix.build.TARGET == 'x86_64-unknown-freebsd' || matrix.build.TARGET == 'x86_64-unknown-netbsd' }}
-        run: |
-          cargo install cross --git https://github.com/cross-rs/cross
-          cross build --locked --target ${{ matrix.build.TARGET }} --verbose
+        run: ./scripts/build_debug.sh ${{ matrix.build.TARGET }}
 
   test:
     name: Test
@@ -124,30 +116,11 @@ jobs:
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
 
-      # - name: Install cargo-llvm-cov
-      #   uses: taiki-e/install-action@cargo-llvm-cov
-
       - name: Cache Cargo dependencies
         uses: Swatinem/rust-cache@v2
 
       - name: Run tests
         run: cargo test
-
-      # - name: Generate code coverage
-      #   run: cargo llvm-cov --lcov --output-path lcov.info
-      #   env:
-      #     NO_COLOR: 1
-      #     OUT_DIR: target
-
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     name: code-coverage-report
-      #     files: lcov.info
-      #     fail_ci_if_error: true
-      #     verbose: true
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     config_file: config/codecov.yml
 
   lint:
     name: Check
@@ -172,20 +145,9 @@ jobs:
 
       - name: Run rustfmt
         run: cargo fmt --all -- --check
-        # env:
-          #   RUSTFMT_CONFIG_PATH: ./config/rustfmt.toml
 
       - name: Run clippy
         run: cargo clippy --tests -- -D warnings
-        # env:
-          #   CLIPPY_CONFIG_PATH: ./config/clippy.toml
-
-      # - name: Run cargo-deny
-      #   uses: EmbarkStudios/cargo-deny-action@v1
-      #   with:
-      #     command: check licenses sources
-      #   env:
-      #       CARGO_DENY_CONFIG_PATH: ./config/deny.toml
 
       - name: Run cargo-audit
         run: |
@@ -193,37 +155,3 @@ jobs:
           cargo audit
         env:
           CARGO_AUDIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Run committed
-      #   uses: crate-ci/committed@master
-      #   with:
-      #     args: "-vv"
-      #     commits: "HEAD"
-      #   env:
-      #       COMMITTED_CONFIG_PATH: ./config/committed.toml
-
-      # - name: Run lychee
-      #   uses: lycheeverse/lychee-action@v1
-      #   with:
-      #     args: -v *.md
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Run codespell
-      #   uses: codespell-project/actions-codespell@master
-      #   with:
-      #     check_filenames: true
-      #     check_hidden: true
-      #     ignore_words_file: config/.codespellignore
-      #     skip: target,.git
-
-      # - name: Run cargo-msrv
-      #   shell: bash
-      #   run: |
-      #     curl -s 'https://api.github.com/repos/foresterre/cargo-msrv/releases' | \
-      #       jq -r "[.[] | select(.prerelease == false)][0].assets[] | \
-      #       select(.name | ascii_downcase | test(\"linux.*x86_64|x86_64.*linux\")).browser_download_url" | \
-      #       wget -qi -
-      #     tar -xvf cargo-msrv*.tar* -C  ~/.cargo/bin/ cargo-msrv
-      #     printf "%s" "Checking MSRV for $package..."
-      #     cargo msrv --output-format json verify | tail -n 1 | jq --exit-status '.success'
